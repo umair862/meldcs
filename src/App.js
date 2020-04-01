@@ -1,6 +1,6 @@
 import React from 'react'
-import { LoginPage } from './login.page'
-import { DeviceLayout } from './devices.layout'
+import { LoginPage } from './LoginPage/Login.page'
+import { DeviceLayout } from './DevicesLayout/Devices.layout'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import { ProtectedRoute } from './protected.route'
