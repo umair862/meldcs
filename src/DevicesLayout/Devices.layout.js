@@ -95,8 +95,8 @@ export const DeviceLayout = (props) => {
         console.log('NOTIFY CALLED');
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: 'Umair Cheema', email: 'umair.cheema@gmail.com', repoUrl:'', message:'Please find the link to code' })
+            headers: { 'Content-Type': 'application/json', 'authorization': `Bearer ${token}` },
+            body: JSON.stringify({ name: 'Umair Cheema', email: 'umair.cheema@gmail.com', repoUrl:'https://github.com/umair862/meldcs', message:'Please find the link to code' }),
         };
         fetch('http://35.201.2.209:8000/notify', requestOptions)
             .then(async response => {
