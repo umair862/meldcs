@@ -68,8 +68,8 @@
 /*==================================================*/
 /* Keyframes*/
 @keyframes rotateClockwise {
-  0% {
-    transform: rotateZ(360deg);
+  100% {
+    transform: rotate(36000deg);
   }
 }
 @keyframes rotateCounterClockwise {
@@ -86,7 +86,9 @@
     margin-top: -240px;
     left: 50%;
     margin-left: -40px;
-    /*animation: rotateClockwise 8s linear infinite;*/
+  }
+  .dotanimate{
+    animation: rotateClockwise 5000s linear 1;
   }
   .dot:before {
     display: block;

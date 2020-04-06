@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Cookies from 'js-cookie';
+import $ from 'jquery';
 import './DevicesLayout.css';
 
 export const DeviceLayout = (props) => {
@@ -45,6 +46,7 @@ export const DeviceLayout = (props) => {
     useInterval(() => {
         // Your custom logic here
         fetchDevices();
+        $('.dot').removeClass('dotanimate');
     }, delay);
 
     function useInterval(callback, delay) {
@@ -83,7 +85,9 @@ export const DeviceLayout = (props) => {
         const positionIndex = maxAngle / number;
         let position = positionIndex;
         for (let i = 0; i < number; i++) {
-            deviceArr.push(<div key={i} className="dot" style={{ transform: `rotate(${position}deg)` }}></div>);
+            let dateStamp = `dot-${Date.now()}`;
+            let classes = `dot ${dateStamp} dotanimate`;
+            deviceArr.push(<div key={`${i}Date.now()`} className={classes} style={{ transform: `rotate(${position}deg)` }}></div>);
             position = position + positionIndex;
         }
         position = 0;
