@@ -46,7 +46,7 @@ export const DeviceLayout = (props) => {
     useInterval(() => {
         // Your custom logic here
         fetchDevices();
-        $('.dot').removeClass('dotanimate');
+        $('.dot').css('animation', 'none');
     }, delay);
 
     function useInterval(callback, delay) {
@@ -82,12 +82,17 @@ export const DeviceLayout = (props) => {
     const drawDevices = (number) => {
         const deviceArr = [];
         const maxAngle = 360;
+        const maxTravel = 3600;
+        const maxTravelTime = 500; //sec
         const positionIndex = maxAngle / number;
         let position = positionIndex;
         for (let i = 0; i < number; i++) {
             let dateStamp = `dot-${Date.now()}`;
-            let classes = `dot ${dateStamp} dotanimate`;
-            deviceArr.push(<div key={`${i}Date.now()`} className={classes} style={{ transform: `rotate(${position}deg)` }}></div>);
+            let classes = `dot ${dateStamp}`;
+            let deviceAnimateduration = (maxTravelTime/maxTravel) * (maxTravel-position);
+            let animation = `rotateClockwise ${deviceAnimateduration}s linear infinite`;
+            console.log(animation);
+            deviceArr.push(<div key={`${i}Date.now()`} className={classes} style={{ transform: `rotate(${position}deg)`, animation: animation}}></div>);
             position = position + positionIndex;
         }
         position = 0;
