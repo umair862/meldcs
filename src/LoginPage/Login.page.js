@@ -27,7 +27,7 @@ export const LoginPage = (props) => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email, password: password })
+            body: JSON.stringify({ email: email, password: password }) //email: any password: meld123
         };
         fetch('http://35.201.2.209:8000/login', requestOptions)
             .then(async response => {

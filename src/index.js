@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -37,7 +36,7 @@ const rootReducer = combineReducers({
 
 const INITIAL_STATE = {}
 
-const store = createStore(rootReducer, INITIAL_STATE);
+const store = createStore(rootReducer, INITIAL_STATE, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 ReactDOM.render(
